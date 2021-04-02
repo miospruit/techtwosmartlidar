@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import {Component} from 'react';
 import MapGL from 'react-map-gl';
+import lidarSocket from '../Components/lidarSocket';
 const MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoibWlvaXNtaW8iLCJhIjoiY2ttdXltdzdvMDAwbTJwczFyNXdtaHdnbiJ9.eme1iIb7IA-eHvcXBFWOkQ";
 
 class Map extends Component {
@@ -20,6 +21,7 @@ class Map extends Component {
   
     render() {
       return (
+        <div>
         <MapGL
           {...this.state.viewport}
           width="200px"
@@ -28,6 +30,8 @@ class Map extends Component {
           onViewportChange={viewport => this.setState({viewport})}
           mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
         />
+        <lidarSocket/>
+        </div>
       );
     }
   }
